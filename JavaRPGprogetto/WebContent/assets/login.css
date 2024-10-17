@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url=('sfondo-login.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(19, 24, 7, 0.9); /* Uniformato con il background generale */
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Stili per i bottoni con l'animazione della pallina */
+.animated-button {
+    position: relative;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    overflow: visible; /* Cambiato a 'visible' per mostrare la pallina */
+    transition: color 0.3s ease, border-color 0.3s ease;
+    
+}
+
+.animated-button:hover {
+    color: #f39c12;
+    border-color: #f39c12;
+}
+
+.animated-button .ball {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: rotateBall 6s linear infinite; /* Aumentata la durata a 6s per un movimento più lento */
+}
+
+/* Keyframes per l'animazione lungo il bordo */
+@keyframes rotateBall {
+    0% {
+        top: -5px;  /* Inizia nell'angolo in alto a sinistra */
+        left: -5px;
+    }
+    25% {
+        top: -5px;
+        left: calc(100% - 5px);  /* Si muove verso l'angolo in alto a destra */
+    }
+    50% {
+        top: calc(100% - 5px); /* Scende verso l'angolo in basso a destra */
+        left: calc(100% - 5px);
+    }
+    75% {
+        top: calc(100% - 5px); /* Si muove verso l'angolo in basso a sinistra */
+        left: -5px;
+    }
+    100% {
+        top: -5px; /* Ritorna nell'angolo in alto a sinistra */
+        left: -5px;
+    }
+}
+
+/* Stile del titolo principale */
+/* Titolo principale */
+.header h1 {
+	font-family: 'Garamond', serif; 
+    font-size: 3.5em;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+    margin-top:100px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.header h1:hover {
+    color: #ffcc00;
+}
+
+.header p {
+	
+    font-size: 1em;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.login-container {
+    background-color:rgba(19, 24, 7, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 350px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+/* Stile generale del form */
+.form-container h2 {
+    margin-bottom: 15px;  
+    font-size: 1.6em;     
+    color: #fff;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;  
+    font-size: 1em;      
+    color: #ddd;
+}
+
+input {
+    width: 100%;
+    padding: 10px;  
+    margin-bottom: 12px;  
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 0.9em;  
+}
+
+input:focus {
+    outline: none;
+    border-color: #9a31f7;
+}
+
+
+#loginButton,
+#registerButton {
+    width: 100%;
+    max-width: 220px;
+    padding: 12px;
+    background-color: rgba(19, 24, 7, 0.9);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 5px;
+    margin-bottom: 100px;
+    position: relative;
+    
+}
+
+#loginButton:hover,
+#registerButton:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Link per passare tra login e registrazione */
+p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+p a {
+    color: #f1c40f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Nascondi il form di registrazione all'inizio */
+.hidden {
+    display: none;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8em;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Media query per schermi più piccoli (tablet e smartphone) */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 3.5em; /* Mantiene il titolo grande anche su schermi medi */
+    }
+
+    .header p {
+        font-size: 1.2em; /* Leggermente più piccolo su schermi medi */
+    }
+
+    .login-container {
+        padding: 15px;  /* Riduce ulteriormente il padding */
+        width: 90%;     /* Occupa quasi tutto lo schermo */
+    }
+
+    #formButton {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    footer {
+        bottom: 5px;
+    }
+}
+
+/* Media query per schermi molto piccoli (smartphone piccoli) */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 3em; /* Riduce la dimensione del titolo su schermi piccoli */
+    }
+
+    .header p {
+        font-size: 1em; /* Riduce la dimensione del sottotitolo su schermi piccoli */
+    }
+
+    .login-container {
+        padding: 10px; /* Ulteriore riduzione del padding per smartphone */
+        width: 95%;    /* Occupa quasi tutto lo schermo */
+    }
+
+    #formButton {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    footer {
+        bottom: 5px;
+        font-size: 0.7em;
+    }
+}
+
+
+

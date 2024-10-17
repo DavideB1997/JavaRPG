@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+   font-family: 'Arial', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(19, 24, 7, 0.9); /* Sfondo navbar uniforme ai reference */
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Imposta la larghezza al 100% */
+}
+
+.navbar-buttons {
+    margin-left: auto; /* Spinge il bottone a destra */
+}
+
+
+.game-title {
+	font-family: 'Garamond', serif;
+    font-size: 2.5em;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+    transition: color 0.3s ease;
+}
+
+.game-title:hover {
+    color: #f39c12;
+}
+
+/* Stili per i bottoni con l'animazione della pallina */
+.animated-button {
+    position: relative;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    overflow: visible; 
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.animated-button:hover {
+    color: #f39c12;
+    border-color: #f39c12;
+}
+
+.animated-button .ball {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: rotateBall 6s linear infinite; 
+}
+
+/* Keyframes per l'animazione lungo il bordo */
+@keyframes rotateBall {
+    0% {
+        top: -5px;  /* Inizia nell'angolo in alto a sinistra */
+        left: -5px;
+    }
+    25% {
+        top: -5px;
+        left: calc(100% - 5px);  /* Si muove verso l'angolo in alto a destra */
+    }
+    50% {
+        top: calc(100% - 5px); /* Scende verso l'angolo in basso a destra */
+        left: calc(100% - 5px);
+    }
+    75% {
+        top: calc(100% - 5px); /* Si muove verso l'angolo in basso a sinistra */
+        left: -5px;
+    }
+    100% {
+        top: -5px; /* Ritorna nell'angolo in alto a sinistra */
+        left: -5px;
+    }
+}
+
+.profile-container {
+    margin-top: 100px;
+    padding: 20px;
+    background-color: rgba(19, 24, 7, 0.5);
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2, h3, h4{
+	font-family: 'Garamond', serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2:hover {
+    color: #ffcc00; /* Stesso colore hover di h1 */
+}
+h3:hover {
+    color: #ffcc00; /* Stesso colore hover di h1 */
+}
+h4:hover {
+    color: #ffcc00; /* Stesso colore hover di h1 */
+}
+.user-info {
+    background-color: rgba(19, 24, 7, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.character-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.character-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 600px;
+    background-color: rgba(19, 24, 7, 0.9);
+    padding: 20px; /* Padding esistente */
+    border-radius: 10px;
+    margin-bottom: 30px; /* Maggiore margine sotto il contenitore del personaggio */
+}
+
+.character-sprite {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px; /* Distanza tra l'immagine e i dettagli */
+}
+
+.character-details {
+    flex-grow: 1;
+    color: #fff;
+}
+
+/* Aggiungiamo più spazio ai dettagli del personaggio */
+.character-details h4 {
+    margin-bottom: 10px; /* Maggiore spazio sotto il titolo del personaggio */
+}
+
+.character-details p {
+    margin-bottom: 10px; /* Maggiore spazio sotto i paragrafi */
+}
+
+.character-details ul {
+    list-style: none; /* Rimuove i punti dalla lista */
+    padding-left: 0; /* Rimuove il padding della lista */
+    margin-bottom: 10px; /* Maggiore spazio sotto la lista */
+}
+
+.character-details li {
+    margin-bottom: 5px; /* Spazio tra gli elementi della lista */
+}
+
+/* Pulsanti per la selezione dei personaggi */
+.arrow-button {
+    padding: 12px 24px; /* Stile simile agli altri pulsanti */
+   background-color: rgba(19, 24, 7, 0.9);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em; /* Modificato per uniformità */
+    position: relative; /* Necessario per l'animazione della pallina */
+    overflow: visible; /* Assicurati che l'overflow sia visibile */
+    transition: color 0.3s ease, border-color 0.3s ease; /* Aggiunta transizione */
+}
+
+.arrow-button:hover {
+    color: #f39c12; /* Colore hover */
+    border-color: #f39c12; /* Colore del bordo hover */
+}
+
+/* Aggiungi l'animazione della pallina */
+.arrow-button .ball {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(19, 24, 7, 0.9);
+    border-radius: 50%;
+    animation: rotateBall 6s linear infinite; 
+}
+
+/* Keyframes per l'animazione della pallina */
+@keyframes rotateBall {
+    0% {
+        top: -5px;  /* Inizia nell'angolo in alto a sinistra */
+        left: -5px;
+    }
+    25% {
+        top: -5px;
+        left: calc(100% - 5px);  /* Si muove verso l'angolo in alto a destra */
+    }
+    50% {
+        top: calc(100% - 5px); /* Scende verso l'angolo in basso a destra */
+        left: calc(100% - 5px);
+    }
+    75% {
+        top: calc(100% - 5px); /* Si muove verso l'angolo in basso a sinistra */
+        left: -5px;
+    }
+    100% {
+        top: -5px; /* Ritorna nell'angolo in alto a sinistra */
+        left: -5px;
+    }
+}
+
+/*.edit-profile-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}*/
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8em;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/*.edit-profile-button {
+    width: 100%;
+    padding: 12px;
+  	background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 1em; 
+    transition: background-color 0.3s; 
+}
+
+.edit-profile-button:hover {
+    background-color: #9a31f7; 
+}*/
+
+
+
+#profileForm {
+    display: none; /* Inizialmente nascosto */
+    margin-bottom: 20px; /* Spazio sotto il modulo */
+}
+
+#profileForm label {
+    display: block; /* Rende i label blocchi per una migliore disposizione */
+    margin-bottom: 5px; /* Spazio sotto i label */
+    font-size: 1em; /* Dimensione del testo */
+    color: #fff; /* Colore del testo */
+}
+
+#profileForm input {
+    width: calc(100% - 20px); /* Larghezza totale meno padding */
+    padding: 10px; /* Spazio interno */
+    border: 1px solid #fff; /* Bordo bianco */
+    border-radius: 5px; /* Bordo arrotondato */
+    background-color: rgba(255, 255, 255, 0.1); /* Sfondo leggero */
+    color: #fff; /* Colore del testo */
+    margin-bottom: 10px; /* Spazio sotto i campi */
+}
+
+#profileForm button {
+    width: 100%;
+    padding: 10px; 
+    background-color: transparent; 
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#profileForm button:hover {
+	color: #f39c12;
+    border-color: #f39c12;
+    }
+
+    

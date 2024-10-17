@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color:rgb(29,34,12) ;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+h1 {
+	font-family: 'Garamond', serif; 
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    transition: color 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+h1:hover {
+    color: #ffcc00; /* Colore hover per h1 */
+}
+
+/* Titoli secondari (h2) uniformati a h1 */
+h2 {
+	font-family: 'Garamond', serif; 
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+h2:hover {
+    color: #ffcc00; /* Stesso colore hover di h1 */
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(19, 24, 7, 0.9); /* Un colore più scuro che si abbina bene allo sfondo */
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-title {
+    font-size: 2em;
+    color: #fff;
+}
+
+
+.profile-area {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.dropdown-menu {
+    display: none; /* Nascondiamo il menu a tendina di default */
+    position: absolute;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #6a0dad;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Mostra il menu a tendina al passaggio del mouse */
+}
+
+
+.game-title {
+	font-size: 2em; 
+    color: #fff; 
+    transition: color 0.3s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.game-title:hover {
+    color: #f39c12; 
+}
+
+.profile-area {
+    font-size: 1em;
+}
+
+#loginLink {
+    color: #fff;;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+#loginLink:hover {
+    text-decoration: underline;
+    color: #f39c12;
+}
+
+/* Contenitore delle informazioni sul gioco */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; 
+    margin-top: 80px; /* Aggiunto spazio sopra per evitare che sia coperto dalla navbar */
+}
+
+/* Stile per ogni elemento informativo */
+.info-item {
+    background-color: rgba(0, 0, 0, 0.8); 
+    padding: 20px;
+    border-radius: 15px; 
+    margin: 15px; 
+    width: 90%; 
+    max-width: 600px; 
+    transition: transform 0.3s, box-shadow 0.3s; /* Aggiunto effetto ombra */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Effetto hover per ogni elemento informativo */
+.info-item:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7); /* Ombra più profonda al passaggio del mouse */
+}
+
+/* Stile per il contenuto informativo */
+.info-item .info-content {
+    margin-bottom: 25px; 
+    line-height: 1.6;   
+    color: #e0e0e0;      
+}
+
+/* Stili per i bottoni con l'animazione della pallina */
+.animated-button {
+    position: relative;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    overflow: visible; /* Cambiato a 'visible' per mostrare la pallina */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.animated-button:hover {
+    color: #f39c12;
+    border-color: #f39c12;
+}
+
+.animated-button .ball {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: rotateBall 6s linear infinite; /* Aumentata la durata a 6s per un movimento più lento */
+}
+
+
+/* Keyframes per l'animazione lungo il bordo */
+@keyframes rotateBall {
+    0% {
+        top: -5px;  /* Inizia nell'angolo in alto a sinistra */
+        left: -5px;
+    }
+    25% {
+        top: -5px;
+        left: calc(100% - 5px);  /* Si muove verso l'angolo in alto a destra */
+    }
+    50% {
+        top: calc(100% - 5px); /* Scende verso l'angolo in basso a destra */
+        left: calc(100% - 5px);
+    }
+    75% {
+        top: calc(100% - 5px); /* Si muove verso l'angolo in basso a sinistra */
+        left: -5px;
+    }
+    100% {
+        top: -5px; /* Ritorna nell'angolo in alto a sinistra */
+        left: -5px;
+    }
+}
+
+/* Pulsanti */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; 
+}
+
+#continueGame,
+#newGame {
+    padding: 12px 24px; 
+    background-color: #6a0dad; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em; /* Uniformato */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#continueGame:hover,
+#newGame:hover {
+    background-color: #9a31f7; /* Uniformato */
+    transform: translateY(-2px); /* Effetto hover uniformato */
+}
+
+/* Footer */
+footer {
+    background-color: rgba(19, 24, 7, 0.9); /* Stesso colore della navbar */
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+/* Stili per l'overlay di caricamento */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 1); /* Sfondo scuro semi-trasparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Assicura che l'overlay sia sopra il contenuto */
+    transition: opacity 0.5s ease; /* Transizione per l'opacità */
+}
+
+/* Contenuto del caricamento */
+.loading-content {
+    text-align: center;
+    color: #fff; /* Colore del testo bianco */
+    margin-top: 10px;
+}
+
+/* Icona di caricamento */
+.loading-icon {
+    width: 150px; /* Dimensione dell'icona ingrandita */
+    height: auto; /* Mantiene le proporzioni */
+    margin-bottom: 10px; /* Margine sotto l'icona */
+}
+
+/* Barra di caricamento */
+.loading-bar {
+    width: 100%; /* Uniformato */
+    height: 10px; /* Altezza della barra */
+    background-color: #444; /* Colore dello sfondo della barra */
+    border-radius: 5px; /* Angoli arrotondati */
+    overflow: hidden; /* Nasconde la parte che fuoriesce */
+}
+
+/* Progresso della barra di caricamento */
+.loading-progress {
+    height: 100%; /* Altezza della barra di progresso */
+    width: 0%; /* Inizialmente a 0% */
+    background-color: #6a0dad; /* Uniformato al primo CSS */
+    animation: loadingAnimation 2s infinite; /* Animazione */
+}
+
+/* Animazione della barra di caricamento */
+@keyframes loadingAnimation {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 50%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.parallax-container {
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	perspective: 1px;
+	position: static;
+	margin-bottom: 0; /* Rimuove lo spazio sotto il parallax */
+	padding-bottom: 0; /* Assicurati che non ci sia padding sotto */
+}
+
+.parallax-layer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.primo-layer {
+	transform: translateZ(-10px) scale(11);
+}
+
+.secondo-layer {
+	transform: translateZ(-9px) scale(10);
+}
+
+.terzo-layer {
+	transform: translateZ(-8px) scale(9);
+}
+
+.quarto-layer {
+	transform: translateZ(-7px) scale(8);
+	margin-top: 870px;
+}
+
+.content-layer {
+	transform: translateZ(0);
+	position: relative;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	flex-direction: column;
+	padding: 1px;
+	text-align: center;
+}
+
+.content-layer p {
+	background: rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.parallax-image {
+	position: absolute;
+	max-width: 100%;
+	height: auto;
+}
+
+.prima-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: relative;
+}
+
+.second-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.terza-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.quarta-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}*/
+
+/* Leaderboard */
+#leaderboardContainer {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 90%;
+    max-width: 600px;
+    color: #f1c40f;
+    text-align: left;
+}
+
+#leaderboardContainer p {
+    margin: 5px 0;
+}
+
+#leaderboardContainer p:first-child {
+    font-weight: bold;
+    color: #f39c12; /* Primo utente con punteggio più alto */
+}
+
+

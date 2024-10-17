@@ -1,0 +1,120 @@
+@charset "UTF-8";* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    background-color: rgba(19, 24, 7, 0.9); /* Background color for consistency */
+    padding: 15px;
+    position: fixed; /* Fixed positioning to stay at the top */
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Imposta la larghezza al 100% */
+}
+
+/* Title in Navbar */
+.game-title {
+    font-family: 'Garamond', serif;
+    font-size: 2.5em; /* Consistent font size */
+    color: #fff; /* Text color */
+    text-shadow: 2px 2px 5px #000; /* Text shadow for better visibility */
+    transition: color 0.3s ease; /* Transition for hover effect */
+}
+
+.game-title:hover {
+    color: #f39c12; /* Colore al passaggio del mouse */
+}
+
+.back-button,
+.save-button {
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    position: relative; /* Necessario per l'animazione della pallina */
+}
+
+.back-button:hover,
+.save-button:hover {
+    color: #f39c12; /* Colore hover */
+    border-color: #f39c12; /* Colore del bordo hover */
+}
+
+.back-button 
+.save-button{
+    padding: 10px 20px; /* Uniform padding */
+    background-color: #6a0dad; /* Uniform background color */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth background change */
+    font-family: 'Garamond', serif;
+}
+
+.back-button:hover 
+.save-button:hover {
+    background-color: #9a31f7; /* Hover effect */
+}
+
+.game-container {
+    margin-top: 100px; 
+    text-align: center;
+    background-color: rgba(19, 24, 7, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    width: 1280px;
+    height:720px;
+}
+
+
+#mapArea {
+    border: 1px solid #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ddd;
+    margin-top:15px;
+    width:100;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8em;
+    text-shadow: 1px 1px 2px #000;
+}

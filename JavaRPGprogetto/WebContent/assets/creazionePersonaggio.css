@@ -1,0 +1,350 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+/* Stili per i titoli */
+h2, h3, h4 {
+    font-family: 'Garamond', serif;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h2:hover, h3:hover, h4:hover {
+    color: #ffcc00; /* Colore hover per i titoli */
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(19, 24, 7, 0.9);
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.game-title {
+    font-family: 'Garamond', serif;
+    font-size: 2.5em;
+    color: #fff;
+    text-shadow: 2px 2px 5px #000;
+    transition: color 0.3s ease;
+}
+
+.game-title:hover {
+    color: #f39c12;
+}
+
+/* Pulsanti con animazione */
+.back-button,
+.styled-button {
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    position: relative;
+}
+
+.back-button:hover,
+.styled-button:hover {
+    color: #f39c12;
+    border-color: #f39c12;
+}
+
+.styled-button .ball {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: rotateBall 6s linear infinite;
+}
+
+@keyframes rotateBall {
+    0% {
+        top: -5px;
+        left: -5px;
+    }
+    25% {
+        top: -5px;
+        left: calc(100% - 5px);
+    }
+    50% {
+        top: calc(100% - 5px);
+        left: calc(100% - 5px);
+    }
+    75% {
+        top: calc(100% - 5px);
+        left: -5px;
+    }
+    100% {
+        top: -5px;
+        left: -5px;
+    }
+}
+
+/* Character creation styles */
+.character-creation-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    margin: 150px auto 50px auto;
+    max-width: 1000px;
+    width: 90%;
+    overflow-y: auto;
+}
+
+.character-selection {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sprite-container {
+    width: 250px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.arrow-button {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.arrow-button:hover {
+    color: #f39c12;
+    border-color: #f39c12;
+}
+
+.character-name {
+    margin-top: 10px;
+}
+
+.character-form {
+    flex: 1;
+    padding-left: 40px;
+}
+
+.character-form label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.character-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#weapon-container,
+#items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.grid-item {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.grid-item:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.character-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    max-width: 600px;
+    background-color: rgba(19, 24, 7, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.character-details {
+    flex-grow: 1;
+    color: #fff;
+}
+
+.weapon img {
+    width: 100%;
+    height: auto;
+}
+
+.weapon.selected {
+    border: 2px solid #ffcc00;
+    background-color: rgba(255, 204, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8em;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Character Selection - Fixed */
+.character-selection label {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.character-selection input[type="radio"] {
+    display: none !important; /* Nasconde il pallino radio */
+}
+
+.character-selection label img {
+    border: 3px solid gray; /* Contorno grigio di default */
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.character-selection input[type="radio"]:checked + img {
+    border-color: lightblue !important; /* Contorno celeste quando selezionato */
+}
+
+.character-selection img:hover {
+    border-color: darkgray; /* Colore grigio scuro al passaggio del mouse */
+}
+
+
+
+
+/* Character Selection - Fixed */
+.weapon-container label {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px;
+    padding:12px;
+}
+
+.weapon-container input[type="radio"] {
+    display: none !important; /* Nasconde il pallino radio */
+}
+
+.weapon-container label img {
+    border: 3px solid gray; 
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    height:60px;
+}
+
+.weapon-container input[type="radio"]:checked + img {
+    border-color: lightblue !important; /* Contorno celeste quando selezionato */
+}
+
+.weapon-container img:hover {
+    border-color: darkgray; /* Colore grigio scuro al passaggio del mouse */
+}
+
+
+
+/* Character Selection - Fixed */
+.items-container label {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px;
+    padding:12px;
+}
+
+.items-container input[type="radio"] {
+    display: none !important; /* Nasconde il pallino radio */
+}
+
+.items-container label img {
+    border: 3px solid gray; 
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    height:60px;
+}
+
+.items-container input[type="radio"]:checked + img {
+    border-color: lightblue !important; /* Contorno celeste quando selezionato */
+}
+
+.items-container img:hover {
+    border-color: darkgray; /* Colore grigio scuro al passaggio del mouse */
+}
+
+
+.items-containter .items image{
+	width:30;
+	
+}
+
+
